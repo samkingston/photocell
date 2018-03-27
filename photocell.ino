@@ -39,12 +39,12 @@ void checkCell(){
   photoState = analogRead(photocell);
 
   if (photoState < mid && lastPhotoState > mid){
-    digitalWrite(led, HIGH);
+    digitalWrite(led, LOW);
     Serial.println("led on");
    usbMIDI.sendNoteOn(60, 127, 1);
   }
   if (photoState > mid && lastPhotoState < mid){
-    digitalWrite(led, LOW);
+    digitalWrite(led, HIGH);
     Serial.println("led off");
   usbMIDI.sendNoteOff(60, 0, 1);
   }
